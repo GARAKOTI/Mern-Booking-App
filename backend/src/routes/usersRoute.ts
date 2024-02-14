@@ -39,9 +39,9 @@ router.post("/register",[
     res.cookie("auth_token", token,{
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      maxAge: 8600000,
+      maxAge: 86400000,
     });
-    return res.sendStatus(200);
+    return res.sendStatus(200).send({message:"User Registered  successfully"});
   } catch (error) {
     res.status(500).send({ message: "Something went wrong" });
   }
